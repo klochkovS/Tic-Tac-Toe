@@ -1,0 +1,73 @@
+.messageBox {
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  font-size: 1.5em;
+  padding-bottom: 15px;
+}
+
+.gameField {
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+  border: 1px solid black;
+}
+
+.btn-restart {
+  margin: 15px auto;
+  text-align: center;
+  width: 120px;
+  font-family: Helvetica, sans-serif;
+  font-size: 1em;
+  padding: 8px 0;
+  border: 1px solid #333;
+  border-radius: 7px;
+  transition: 1s linear;
+}
+
+.btn-restart_hidden {
+  display: none;
+}
+
+.btn-restart:hover {
+  background-color: rgb(255, 247, 247);
+  opacity: .7;
+}
+
+.cell {
+  position: relative;
+  float: left;
+  border: 1px solid black;
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+}
+
+.cross:before, .cross:after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 23px;
+  width: 2px;
+  height: 32px;
+  background-color: #3c3b6e;
+}
+
+.cross:before {
+  transform: rotate(45deg);
+}
+
+.cross:after {
+  transform: rotate(-45deg);
+}
+
+.circle:before{
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 32px;
+  height: 32px;
+  border: 2px solid #b22234;
+  border-radius: 50px;
+  box-sizing: border-box;
+}
