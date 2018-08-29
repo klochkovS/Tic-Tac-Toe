@@ -21,7 +21,7 @@
   padding: 8px 0;
   border: 1px solid #333;
   border-radius: 7px;
-  transition: 1s linear;
+  cursor: pointer;
 }
 
 .btn-restart_hidden {
