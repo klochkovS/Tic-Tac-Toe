@@ -16,9 +16,6 @@ function Game(root) {
   this._crossStrokes = [];
   this._circleStrokes = [];
 
-  // this._crossList = [];
-  // this._circleList = [];
-
   this._messageBox = document.createElement('div');
   this._messageBox.className = 'messageBox';
   this._messageBox.textContent = this._isCross
@@ -72,23 +69,23 @@ Game.prototype._newGame = function () {
 
 Game.prototype._stroke = function ({ target }) {
   const figure = document.createElement('span');
-
   if (this._strokeCount % 2) {
     figure.className = 'circle';
     this._circleStrokes.push(+target.dataset.cellId);
-    this._checkWin(this._circleStrokes);
+    !this._isOver && this._checkWin(this._circleStrokes);
   } else {
     figure.className = 'cross';
     this._crossStrokes.push(+target.dataset.cellId);
-    this._checkWin(this._crossStrokes);
+    !this._isOver && this._checkWin(this._crossStrokes);
   }
+  target.appendChild(figure);
   this._isCross = !this._isCross;
+
   if (!this._isOver) {
     this._messageBox.textContent = this._isCross
       ? 'Ходят крестки'
       : 'Ходят нолики';
   }
-  target.appendChild(figure);
   this._strokeCount += 1;
   if (this._strokeCount === 9 && !this._isOver) {
     this._messageBox.textContent = 'Ничья!';
@@ -106,6 +103,7 @@ Game.prototype._checkWin = function (strokesArr) {
         if (count === 3) {
           this._stopGame();
           this._restartButton.className = 'btn-restart';
+
           this._messageBox.textContent = this._isCross
             ? 'Победили крестики'
             : 'Победили нолики';
